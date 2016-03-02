@@ -34,7 +34,10 @@
   "noflo": {
     "components": {
       "Add": "components/Add.coffee",
-      "Cat": "components/Cat.coffee"
+      "Cat": "components/Cat.coffee",
+      "PinAdd": "components/PinAdd.coffee",
+      "PinList": "components/PinList.coffee",
+      "PinRemove": "components/PinRemove.coffee"
     }
   }
 }
