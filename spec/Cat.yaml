@@ -6,8 +6,9 @@ fixture:
   # @runtime noflo-nodejs
 
   INPORT=c.HASH:HASH
-  INPORT=c.HOST:HOST
   OUTPORT=r.OUT:OUT
+
+  '/ip4/127.0.0.1/tcp/5002' -> HOST c(ipfs/Cat)
 
   c(ipfs/Cat) OUT -> IN r(core/Repeat)
 
@@ -16,7 +17,6 @@ cases:
   name: 'receiving a known IPFS hash'
   assertion: 'should return the contents string'
   inputs:
-    host: '/ip4/127.0.0.1/tcp/5002'
     hash: 'QmYAXgX8ARiriupMQsbGXtKdDyGzWry1YV3sycKw1qqmgH'
   expect:
     out:
