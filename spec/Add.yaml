@@ -1,0 +1,23 @@
+topic: "ipfs/Add"
+name: "IPFS add"
+fixture:
+ type: 'fbp'
+ data: |
+  # @runtime noflo-nodejs
+
+  INPORT=c.IN:IN
+  OUTPORT=r.OUT:OUT
+
+  '/ip4/127.0.0.1/tcp/5002' -> HOST c(ipfs/Add)
+
+  c(ipfs/Add) HASH -> IN r(core/Repeat)
+
+cases:
+-
+  name: 'receiving a string'
+  assertion: 'should return a correct hash'
+  inputs:
+    in: 'This is a test'
+  expect:
+    out:
+      equals: 'Qmctf39Vj8aLdg9icf2kvVcENyuNWBwy5TGWvHX9CZ6UkG'
