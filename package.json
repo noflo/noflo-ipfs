@@ -33,6 +33,7 @@
   },
   "noflo": {
     "components": {
+      "Add": "components/Add.coffee",
       "Cat": "components/Cat.coffee"
     }
   }
