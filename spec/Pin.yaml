@@ -9,7 +9,6 @@ fixture:
   INPORT=pl.IN:PINLIST
   INPORT=pr.HASH:PINREMOVE
   OUTPORT=r.OUT:OUT
-  OUTPORT=e.OUT:ERROR
 
   '/ip4/127.0.0.1/tcp/5002' -> HOST pa(ipfs/PinAdd)
   '/ip4/127.0.0.1/tcp/5002' -> HOST pl(ipfs/PinList)
@@ -18,9 +17,6 @@ fixture:
   pa(ipfs/PinAdd) HASH -> IN r(core/Repeat)
   pl(ipfs/PinList) HASHES -> IN r(core/Repeat)
   pr(ipfs/PinRemove) HASH -> IN r(core/Repeat)
-  pa ERROR -> IN e(core/Repeat)
-  pl ERROR -> IN e(core/Repeat)
-  pr ERROR -> IN e(core/Repeat)
 
 cases:
 -
@@ -29,7 +25,7 @@ cases:
   inputs:
     pinadd: 'Qmctf39Vj8aLdg9icf2kvVcENyuNWBwy5TGWvHX9CZ6UkG'
   expect:
-    error:
+    out:
       equals: 'Qmctf39Vj8aLdg9icf2kvVcENyuNWBwy5TGWvHX9CZ6UkG'
 -
   name: 'listing hashes after pinning'
@@ -37,7 +33,7 @@ cases:
   inputs:
     pinlist: true
   expect:
-    error:
+    out:
       contains: 'Qmctf39Vj8aLdg9icf2kvVcENyuNWBwy5TGWvHX9CZ6UkG'
 -
   name: 'removing a pinned hash'
@@ -45,7 +41,7 @@ cases:
   inputs:
     pinremove: 'Qmctf39Vj8aLdg9icf2kvVcENyuNWBwy5TGWvHX9CZ6UkG'
   expect:
-    error:
+    out:
       equals: 'Qmctf39Vj8aLdg9icf2kvVcENyuNWBwy5TGWvHX9CZ6UkG'
 -
   skip: 'pending on fbp-spec NOT keyword'
@@ -54,5 +50,5 @@ cases:
   inputs:
     pinlist: true
   expect:
-    error:
+    out:
       contains: 'Qmctf39Vj8aLdg9icf2kvVcENyuNWBwy5TGWvHX9CZ6UkG'
