@@ -1,0 +1,21 @@
+topic: "ipfs/Cat"
+name: "IPFS cat"
+fixture:
+ type: 'fbp'
+ data: |
+  # @runtime noflo-nodejs
+
+  INPORT=c.HASH:HASH
+  OUTPORT=r.OUT:OUT
+
+  c(ipfs/Cat) OUT -> IN r(core/Repeat)
+
+cases:
+-
+  name: 'receiving a known IPFS hash'
+  assertion: 'should return the contents string'
+  inputs:
+    hash: 'QmYAXgX8ARiriupMQsbGXtKdDyGzWry1YV3sycKw1qqmgH'
+  expect:
+    out:
+      contains: 'Hello, World!'
