@@ -11,3 +11,11 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
+deploy:
+  provider: npm
+  email: henri.bergius@iki.fi
+  api_key:
+    secure: p9bRyQ/Z21Jw7d7kU4xOyoamKBHTWKircITP+C6707eQ61dhvHQZWv5SFuYn+TuQ8yMO33NRqoQxvJUs5NfTKUySt1eYUay1XgbSGP5USvCZCnRG04ksU8Pxbor+6ZHSo6mUG419pKO9t4hTxLTWAoNsaNBSyYpuqi+NJwoSNSd72iKVXeb8PQAaLG3jn0lNDcK+7M8RKuTn7d3Q781ZuNvAJW4+rPhk0UtBMadZjQ6aIRQCdFpFIyd7upg40YnGf1XOQ1+kS+/rLVNlAV/1JXzTH7WfdDxsofyyaGrfTunaRUFSu+k+4poz0olB91z67a55ppTN2FVaBArXkKgB0hChJbILrde8dj4ouAiE17jfFMPErXzZ6R2FRmZjPDhRAYt3Bh+ChFyBMFzSGO9YPM28yAeYwiiYFtacZFrUpam4RiGAvpapZllL/BafJdp3vGbc/iNb6aCY5CPPIUjWcM3yOJTxEk4rAePvghdp0tUAzABdOg880bcpdZZQUB0psbtr+CTdDnsGyIzd2EsEPT1UkzyS5mLYFO4oiyWIP8w0+dXBS1kMhMsXCezKlW4kOZ4PB6QUzdZO7535h0oUokhpHaCYbY+yVS906Ej5kDsM2Kpbv+iI0k5kthy3lgf96W7xvc5Dv02eL+crueZBKQV96yVjXw2zUg3t3VuMbVg=
+  on:
+    tags: true
+    repo: noflo/noflo-ipfs
