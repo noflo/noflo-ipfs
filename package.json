@@ -1,6 +1,6 @@
 {
   "name": "noflo-ipfs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "IPFS components for NoFlo",
   "scripts": {
     "test": "grunt test"
