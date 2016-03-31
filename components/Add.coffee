@@ -18,13 +18,16 @@ exports.getComponent = ->
 
   c.process (input, output) ->
     return unless input.has 'host', 'in'
-    [host, data] = input.getData 'host', 'in'
-    api = ipfs host
+    [host, data] = input.get 'host', 'in'
+    return unless data.type is 'data'
 
-    if typeof data is 'string'
-      data = new Buffer data
+    api = ipfs host.data
 
-    api.add data, (err, res) ->
+    content = data.data
+    if typeof content is 'string'
+      content = new Buffer content
+
+    api.add content, (err, res) ->
       return output.sendDone err if err
       unless res?.length
         return output.sendDone new Error "No results for IPFS add"
