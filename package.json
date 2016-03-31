@@ -14,7 +14,9 @@
   "bugs": {
     "url": "https://github.com/noflo/noflo-ipfs/issues"
   },
-  "keywords": ["noflo"],
+  "keywords": [
+    "noflo"
+  ],
   "homepage": "https://github.com/noflo/noflo-ipfs#readme",
   "devDependencies": {
     "coffee-script": "^1.10.0",
@@ -26,11 +28,11 @@
     "ipfsd-ctl": "^0.8.3",
     "mocha": "^2.4.5",
     "noflo-core": "^0.1.14",
-    "noflo-nodejs": "^0.5.2"
+    "noflo-nodejs": "^0.7.0"
   },
   "dependencies": {
     "ipfs-api": "^2.13.2",
-    "noflo": "^0.6.1"
+    "noflo": "^0.7.1"
   },
   "noflo": {
     "components": {
