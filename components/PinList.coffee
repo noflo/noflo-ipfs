@@ -10,23 +10,22 @@ exports.getComponent = ->
   c.inPorts.add 'host',
     datatype: 'string'
     default: '/ip4/127.0.0.1/tcp/5001'
+    control: true
   c.outPorts.add 'hashes',
     datatype: 'array'
   c.outPorts.add 'error',
     datatype: 'object'
 
-  noflo.helpers.WirePattern c,
-    in: 'in'
-    out: 'hashes'
-    params: ['host']
-    async: true
-    forwardGroups: true
-  , (data, groups, out, callback) ->
-    api = ipfs c.params?.host
-    api.pin.list (err, res) ->
-      return callback err if err
-      unless res?.Keys
-        return callback new Error "No results for IPFS pin list"
+  c.process (input, output) ->
+    return unless input.has 'host', 'in'
+    [host, data] = input.get 'host', 'in'
+    return unless data.type is 'data'
 
-      out.send Object.keys res.Keys
-      do callback
+    api = ipfs host.data
+    api.pin.list (err, res) ->
+      return output.sendDone err if err
+      unless res?.Keys
+        return output.sendDone new Error "No results for IPFS pin list"
+
+      output.sendDone
+        hashes: Object.keys res.Keys
