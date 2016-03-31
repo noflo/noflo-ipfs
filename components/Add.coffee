@@ -32,4 +32,4 @@ exports.getComponent = ->
       unless res?.length
         return output.sendDone new Error "No results for IPFS add"
       output.sendDone
-        hash: res[0].hash
+        hash: res[0].Hash
