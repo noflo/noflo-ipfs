@@ -10,27 +10,23 @@ exports.getComponent = ->
   c.inPorts.add 'host',
     datatype: 'string'
     default: '/ip4/127.0.0.1/tcp/5001'
+    control: true
   c.outPorts.add 'hash',
     datatype: 'string'
   c.outPorts.add 'error',
     datatype: 'object'
 
-  noflo.helpers.WirePattern c,
-    in: 'in'
-    out: 'hash'
-    params: ['host']
-    async: true
-    forwardGroups: true
-  , (data, groups, out, callback) ->
-    api = ipfs c.params?.host
+  c.process (input, output) ->
+    return unless input.has 'host', 'in'
+    [host, data] = input.getData 'host', 'in'
+    api = ipfs host
 
     if typeof data is 'string'
       data = new Buffer data
 
     api.add data, (err, res) ->
-      return callback err if err
+      return output.sendDone err if err
       unless res?.length
-        return callback new Error "No results for IPFS add"
-
-      out.send res[0].Hash
-      do callback
+        return output.sendDone new Error "No results for IPFS add"
+      output.sendDone
+        hash: res[0].hash
