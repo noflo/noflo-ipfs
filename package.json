@@ -27,7 +27,7 @@
     "grunt-noflo-manifest": "^0.1.11",
     "ipfsd-ctl": "^0.8.3",
     "mocha": "^2.5.0",
-    "noflo-core": "^0.2.0",
+    "noflo-core": "^0.3.0",
     "noflo-nodejs": "^0.7.1"
   },
   "dependencies": {
