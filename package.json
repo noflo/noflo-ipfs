@@ -31,7 +31,7 @@
     "noflo-nodejs": "^0.7.1"
   },
   "dependencies": {
-    "ipfs-api": "^4.1.0",
+    "ipfs-api": "^8.0.3",
     "noflo": "^0.7.5"
   },
   "noflo": {
