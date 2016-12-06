@@ -22,10 +22,10 @@ exports.getComponent = ->
     return unless data.type is 'data'
 
     api = ipfs host.data
-    api.pin.list (err, res) ->
+    api.pin.ls (err, res) ->
       return output.sendDone err if err
-      unless res?.Keys
+      unless Object.keys(res).length
         return output.sendDone new Error "No results for IPFS pin list"
 
       output.sendDone
-        hashes: Object.keys res.Keys
+        hashes: Object.keys res

@@ -6,12 +6,6 @@ module.exports = ->
   @initConfig
     pkg: @file.readJSON 'package.json'
 
-    # Updating the package manifest files
-    noflo_manifest:
-      update:
-        files:
-          'package.json': ['graphs/*', 'components/*']
-
     # BDD tests on Node.js
     mochaTest:
       nodejs:
@@ -30,16 +24,12 @@ module.exports = ->
             value: 80
             level: 'warn'
 
-  # Grunt plugins used for building
-  @loadNpmTasks 'grunt-noflo-manifest'
-
   # Grunt plugins used for testing
   @loadNpmTasks 'grunt-mocha-test'
   @loadNpmTasks 'grunt-coffeelint'
 
   # Our local tasks
-  @registerTask 'build', ['noflo_manifest']
-  @registerTask 'test', ['coffeelint', 'build', 'startIPFS', 'mochaTest', 'stopIPFS']
+  @registerTask 'test', ['coffeelint', 'startIPFS', 'mochaTest', 'stopIPFS']
   @registerTask 'default', ['test']
 
   daemons = []

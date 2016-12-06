@@ -22,9 +22,7 @@ exports.getComponent = ->
     return unless data.type is 'data'
 
     api = ipfs host.data
-    api.pin.remove data.data, (err, res) ->
+    api.pin.rm data.data, (err, res) ->
       return output.sendDone err if err
-      unless res?.Pinned?.length
-        return output.sendDone new Error "No results for IPFS pin remove"
       output.sendDone
-        hash: res.Pinned[0]
+        hash: data.data
