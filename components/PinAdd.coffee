@@ -24,7 +24,7 @@ exports.getComponent = ->
     api = ipfs host.data
     api.pin.add data.data, (err, res) ->
       return output.sendDone err if err
-      unless res?.Pinned?.length
+      unless res?.pinned?.length
         return output.sendDone new Error "No results for IPFS pin add"
       output.sendDone
-        hash: res.Pinned[0]
+        hash: res.pinned[0]
