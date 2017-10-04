@@ -24,12 +24,12 @@
   "homepage": "https://github.com/noflo/noflo-ipfs#readme",
   "devDependencies": {
     "coffee-script": "^1.10.0",
-    "fbp-spec": "^0.2.0",
+    "fbp-spec": "^0.2.3",
     "grunt": "^1.0.1",
     "grunt-coffeelint": "^0.0.16",
-    "grunt-mocha-test": "^0.13.2",
-    "ipfsd-ctl": "^0.22.0",
-    "mocha": "^3.2.0",
+    "grunt-mocha-test": "^0.13.3",
+    "ipfsd-ctl": "^0.23.0",
+    "mocha": "^4.0.0",
     "noflo-core": "^0.4.0",
     "noflo-nodejs": "0.x >= 0.8"
   },
