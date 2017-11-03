@@ -35,6 +35,6 @@
   },
   "dependencies": {
     "ipfs-api": "^12.0.2",
-    "noflo": "1.0.0"
+    "noflo": "^1.0.0"
   }
 }
