@@ -24,7 +24,7 @@
   "homepage": "https://github.com/noflo/noflo-ipfs#readme",
   "devDependencies": {
     "coffeescript": "^2.0.2",
-    "fbp-spec": "^0.3.0",
+    "fbp-spec": "^0.4.1",
     "grunt": "^1.0.1",
     "grunt-coffeelint": "^0.0.16",
     "grunt-mocha-test": "^0.13.3",
