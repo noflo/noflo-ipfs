@@ -28,7 +28,7 @@
     "grunt": "^1.0.1",
     "grunt-coffeelint": "^0.0.16",
     "grunt-mocha-test": "^0.13.3",
-    "ipfsd-ctl": "^0.24.0",
+    "ipfsd-ctl": "^0.25.0",
     "mocha": "^4.0.0",
     "noflo-core": ">= 0.4.0",
     "noflo-nodejs": "0.x >= 0.8"
