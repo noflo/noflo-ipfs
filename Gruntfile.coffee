@@ -39,7 +39,10 @@ module.exports = ->
     done = @async()
     ipfsd.create({
       port: 5002
-    }).spawn (err, node) ->
+      type: 'go'
+    }).spawn
+      disposable: true
+    , (err, node) ->
       if err
         grunt.log.error err
         return done false
