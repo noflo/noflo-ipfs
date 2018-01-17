@@ -38,10 +38,11 @@ module.exports = ->
   @registerTask 'startIPFS', ->
     done = @async()
     ipfsd.create({
-      port: 5002
       type: 'go'
     }).spawn
       disposable: true
+      config:
+        'Addresses.API': '/ip4/127.0.0.1/tcp/5002'
     , (err, node) ->
       if err
         grunt.log.error err
