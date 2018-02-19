@@ -42,7 +42,8 @@ module.exports = ->
     }).spawn
       disposable: true
       config:
-        'Addresses.API': '/ip4/127.0.0.1/tcp/5002'
+        Addresses:
+          API: '/ip4/127.0.0.1/tcp/5002'
     , (err, node) ->
       if err
         grunt.log.error err
