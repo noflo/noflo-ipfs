@@ -29,7 +29,7 @@
     "grunt-coffeelint": "^0.0.16",
     "grunt-mocha-test": "^0.13.3",
     "go-ipfs-dep": "^0.4.13",
-    "ipfsd-ctl": "^0.37.0",
+    "ipfsd-ctl": "^4.0.0",
     "mocha": "^5.0.0",
     "noflo-core": ">= 0.4.0",
     "noflo-nodejs": "^0.11.0"
